@@ -4,7 +4,7 @@
 
 **En este repositorio encontrarás material adicional y de soporte, además del código que escribiremos en en cada sesión lo que te ayudará a lo largo del curso.**
 
-### Material de soporte para escribir código
+### Website de soporte para escribir código
 - [Python Online](https://www.online-python.com/)
 
 ### Código Python por sesiones
