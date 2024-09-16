@@ -11,7 +11,7 @@ celular = input("Ingrese el celular: ")
 datos_validos = True
 
 # Verificar que el nombre no esté vacío
-if len(nombre) == 0:
+if len(nombre) <= 2:
   datos_validos = False
 
 # Verificar que el e-mail contenga '@' y '.'
@@ -29,6 +29,6 @@ if datos_validos:
   print("Cliente agregado exitosamente")
 else:
   # Datos inválidos
-  print("Datos inválidos. Vuelve a ingresar los datos.")
+  print("Los datos son inválidos. Vuelve a ingresar los datos.")
 
 

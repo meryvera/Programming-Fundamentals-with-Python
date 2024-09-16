@@ -1,10 +1,19 @@
 # AGREGAR FUNCIONES
+# clientes = []
+clientes = [
+  {'nombre': 'Adri', 'email': 'adri@hola.com', 'celular': 987654321},
+  {'nombre': 'Jose', 'email': 'jose@hola.com', 'celular': 999999999},
+  {'nombre': 'Isa', 'email': 'isa@hola.com', 'celular': 911144567},
+  {'nombre': 'Isra', 'email': 'isra@hola.com', 'celular': 922244567}
+]
 
 ################################# AGREGADO 5 ⬇️ #################################
+# Definir funcion de ordenamiento de clientes
 def ordenar_clientes():
   # Ordena la lista de clientes por número de celular
-  clientes.sort(key=lambda x: x["celular"])
+  clientes.sort(key=lambda cadaElemento: cadaElemento["celular"])
 
+# definir funcion de busqueda binaria
 def buscar_cliente_por_celular(celular_buscar):
   #Busca un cliente por número de celular usando búsqueda binaria
   izquierda = 0
@@ -13,32 +22,24 @@ def buscar_cliente_por_celular(celular_buscar):
   while izquierda <= derecha:
     medio = (izquierda + derecha) // 2
     cliente_medio = clientes[medio]
-    print('linea 16 - cliente_medio', cliente_medio)
 
     if cliente_medio["celular"] == celular_buscar:
-      print(cliente_medio)
-      return medio # Devuelve el índice del cliente
+      print('Se encontro al cliente buscado')
+      return cliente_medio # Devuelve el índice del cliente
     elif cliente_medio["celular"] < celular_buscar:
       izquierda = medio + 1
+      print('el universo esta hacia la derecha')
     else:
       derecha = medio - 1
+      print('el universo esta hacia la izquierda')
 
-  return None
 ################################# AGREGADO 5 ⬆️ #################################
-
-# clientes = []
-clientes = [
-  {'nombre': 'Isa', 'email': 'isa@hola.com', 'celular': 911144567},
-  {'nombre': 'Isra', 'email': 'isra@hola.com', 'celular': 922244567},
-  {'nombre': 'adri', 'email': 'adri@hola.com', 'celular': 987654321},
-  {'nombre': 'Jose', 'email': 'jose@hola.com', 'celular': 999999999}
-]
 
 while True:
   print("Opciones:")
   print("1. Agregar un cliente nuevo")
   print("2. Mostrar todos los clientes")
-  print("3. Buscar un cliente por celular")
+  print("3. Buscar un cliente por celular") # AGREGADO 5 ⬆️
   print("4. Salir")
 
   opcion = input("Seleccione una opción (1/2/3/4): ")
@@ -74,6 +75,7 @@ while True:
         "celular": int(celular)
       }
       clientes.append(cliente)
+
       ################################# AGREGADO 5 ⬇️ #################################
       ordenar_clientes() # Ordena la lista después de agregar un nuevo usuario
       ################################# AGREGADO 5 ⬆️ #################################
@@ -81,32 +83,33 @@ while True:
       print("Cliente agregado exitosamente")
     else:
       # Datos inválidos
-      print("Datos inválidos. Vuelve a ingresar los datos.")
+      print("Los datos son inválidos. Vuelve a ingresar los datos.")
 
   elif opcion == "2":
+    ################################# AGREGADO 5 ⬇️ #################################
+    ordenar_clientes() # Ordena la lista después de agregar un nuevo usuario
+    ################################# AGREGADO 5 ⬆️ #################################
+    print('Se escogió mostrar todos los clientes agregados')
     # Mostrar todos los clientes guardados
     print("Clientes guardados:")
-    for cliente in clientes:
-      print(cliente)
+    for cadaElemento in clientes:
+      print(cadaElemento)
   
   ################################# AGREGADO 5 ⬇️  #################################
   elif opcion == "3":
     # Buscar un usuario por número de celular
     celular_buscar = int(input("Ingrese el número de celular del cliente a buscar: "))
-    print('celular ingresado x cliente', celular_buscar)
     cliente_encontrado = buscar_cliente_por_celular(celular_buscar)
-    print('lineaa 101', cliente_encontrado)
 
     if cliente_encontrado:
-      print("Cliente encontrado:")
-      print(cliente_encontrado)
+      print("Cliente encontrado: ", cliente_encontrado)
     else:
-      print("Cliente no encontrado.")
+      print("El cliente no existe en la base de datos")
   ################################# AGREGADO 5 ⬆️ #################################
 
   elif opcion == "4":
     # Salir
-    print("Saliendo del programa.")
+    print("Se escogio salir del programa")
     break
 
   else:

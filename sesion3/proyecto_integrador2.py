@@ -1,12 +1,12 @@
 # AGREGAR CLIENTE CON VALIDACIONES + SISTEMA DE OPCIONES
 
 ################################# AGREGADO 3⬇️ #################################
-usuarios = []
+clientes = []
 
 while True:
   print("Opciones:")
-  print("1. Agregar un usuario nuevo")
-  print("2. Mostrar todos los usuarios")
+  print("1. Agregar un cliente nuevo")
+  print("2. Mostrar todos los clientes agregados")
   print("3. Salir")
 
   opcion = input("Seleccione una opción (1/2/3): ")
@@ -37,31 +37,32 @@ while True:
     if datos_validos:
       # Registramos cliente
       ################################# AGREGADO 3⬇️ #################################
-      usuario = { 
+      cliente = { 
         "nombre": nombre,
         "email": email,
         "celular": int(celular)
       }
-      usuarios.append(usuario)
+      clientes.append(cliente)
       ################################# AGREGADO 3⬆️ #################################
 
       print("Cliente agregado exitosamente")
     else:
       # Datos inválidos
-      print("Datos inválidos. Vuelve a ingresar los datos.")
+      print("Los datos son inválidos. Vuelve a ingresar los datos.")
 
   ################################# AGREGADO 3⬇️  #################################
   elif opcion == "2":
-    # Mostrar todos los usuarios guardados
-    print("Usuarios guardados:")
-    for usuario in usuarios:
-      print(usuario)
+    print('Se escogió mostrar todos los clientes agregados')
+    # Mostrar todos los clientes guardados
+    print("Clientes guardados:")
+    for cadaElemento in clientes:
+      print(cadaElemento)
 
   elif opcion == "3":
     # Salir
-    print("Saliendo del programa.")
+    print("Se escogió salir del programa")
     break
 
   else:
-    print("Opción no válida. Por favor, seleccione una opción válida.")
+    print("Opción no es válida. Por favor, seleccione una opción válida.")
   ################################# AGREGADO 3⬆️ #################################
